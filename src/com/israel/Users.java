@@ -13,6 +13,7 @@ import java.util.List;
 public class Users {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String username;
 
@@ -52,16 +53,12 @@ public class Users {
 
     public static void allUsers() {
         try (Session session = Base.getSession()) {
-
             session.beginTransaction();
-
             FormatDisplay st = new FormatDisplay();
             @SuppressWarnings("unchecked")
             List<Users> usersList = session.createQuery("FROM Users").list();
             //functional operation
 
-            ArrayList<Integer> arrayList = new ArrayList<>();
-            arrayList.add(0);
 
             st.setShowVerticalLines(true);
             st.setHeaders("ID", "Username");
