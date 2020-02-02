@@ -17,8 +17,21 @@ public class Users {
     private int id;
     private String username;
 
+    @OneToOne
+    private Vehicle vehicle;
+
     @Temporal(TemporalType.DATE)
     private Date joinedDate;
+
+
+    public Vehicle getVehicle() {
+        return vehicle;
+    }
+
+    public void setVehicle(Vehicle vehicle) {
+        this.vehicle = vehicle;
+    }
+
     public int getId() {
         return id;
     }
